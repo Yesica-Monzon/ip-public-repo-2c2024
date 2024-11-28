@@ -47,4 +47,11 @@ def deleteFavourite(request):
 
 @login_required
 def exit(request):
-    pass
+    try:
+        # Imprimir para verificar si la función se ejecuta
+        print("Cerrando sesión...")
+        logout(request)
+        return redirect('login')  # O la página deseada
+    except Exception as e:
+        print(f"Error al cerrar sesión: {e}")
+        return redirect('login')  # O la página deseada
